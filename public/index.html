@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/charts/apexcharts.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/extensions/toastr.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/plugins/charts/chart-apex.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/css/plugins/extensions/ext-component-toastr.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <!-- END: Custom CSS-->
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static   menu-collapsed" data-open="click" data-menu="vertical-menu-modern" data-col="">
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="./app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="./app-assets/vendors/js/charts/apexcharts.min.js"></script>
+    <script src="./app-assets/vendors/js/extensions/toastr.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="./app-assets/js/core/app-menu.js"></script>
+    <script src="./app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="./app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+    <!-- END: Page JS-->
+
+    <script>
+        $(window).on('load', function() {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+    </script>
+  </body>
+</html>
