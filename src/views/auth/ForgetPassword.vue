@@ -1,13 +1,13 @@
 <template>
   <div>
-    Home
+    ForgetPassword
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Home',
+  name: 'ForgetPassword',
   components: {
     
   }

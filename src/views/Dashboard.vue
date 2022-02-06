@@ -13,6 +13,7 @@ export default {
 
     return {
       // dashboard name getter in computed function
+      setUser: () => store.commit('user/setUser'),
       name: computed(() => store.state.dashboard.name)
     }
   }

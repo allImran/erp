@@ -1,15 +1,12 @@
 <template>
   <div>
-    Home
+    <slot />
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Home',
-  components: {
-    
-  }
+  name: 'AuthLayout'
 }
 </script>

@@ -1,21 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import dashboard from './routes/dashboard'
+import auth from './routes/auth'
+import profile from './routes/profile'
+import other from './routes/other'
 
 const routes = [
+  ...dashboard,
+  ...auth,
+  ...profile,
+  ...other,
   {
-    path: '/',
-    name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue')
+    path: '/:pathMatch(.*)*',
+    redirect: 'error-404',
   },
-  {
-    path: '/home',
-    name: 'Home',
-    component: () => import('../views/Home.vue'),
-  },
-  {
-    path: '/email',
-    name: 'Email',
-    component: () => import('../views/Email.vue'),
-  }
 ]
 
 const router = createRouter({
@@ -41,6 +38,20 @@ const router = createRouter({
       })
     }
   },
-})
+});
+
+router.beforeEach((to, from, next) => { 
+  window.document.title = to.meta && to.meta.title ? to.meta.title : 'Accounting';
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    let token = localStorage.getItem('token');
+    if (token) {
+      next()
+      return
+    }
+    next('/login')
+  } else {
+    next()
+  }
+});
 
 export default router
