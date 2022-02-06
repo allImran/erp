@@ -27,7 +27,7 @@
                   <a class="nav-link" href="/"><img src="app-assets/images/logo.png" style="height: 45px;"></a>
                 </div>
                 <p class="card-text mb-2">Login to your account</p>
-                <!-- <p style="color: #e35858" id="err-message"><b>{{emailVerificationMessage}}</b></p> -->
+                <p style="color: #e35858" id="err-message"><b>{{emailVerificationMessage}}</b></p>
                 <h3 style="color: #e35858"><b>{{errMessage}}</b></h3>
                 <form class="auth-login-form mt-2" method="POST" @submit.prevent="login()">
                   <div class="mb-1">
@@ -93,6 +93,12 @@ export default {
       },
       // emailVerificationMessage:this.$route.params.verify,
   }),
+
+  computed: {
+    emailVerificationMessage() {
+      return this.$route.query.verify
+    }
+  },
 
   methods: {
     async login() {
