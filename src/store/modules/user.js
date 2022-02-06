@@ -1,7 +1,8 @@
 const state = () => ({
 	user: {},
 	company: [],
-	profile: {}
+	profile: {},
+	sidebar:[]
 })
 
 const getters = {
@@ -17,6 +18,7 @@ const mutations = {
 		console.log(payload, 'mutation')
 		state.profile = payload},
 	setCompany: (state, payload) => state.company = payload,
+	setSidebar: (state, payload) => state.sidebar = payload,
 }
 
 export default {
