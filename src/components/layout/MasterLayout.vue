@@ -122,12 +122,27 @@
 import TopNavbar from '@/components/layout/dashboard/TopNavbar'
 import Footer from '@/components/layout/dashboard/Footer'
 import SideNavbar from '@/components/layout/dashboard/SideNavbar'
+import { useStore } from 'vuex'
+
 export default {
     name: 'MasterLayout',
     components: {
         TopNavbar,
         SideNavbar,
         Footer
+    },
+
+    setup () {
+        const store = useStore()
+
+        return {
+            // dashboard name getter in computed function
+            setUser: () => store.commit('user/setUser')
+        }
+    },
+
+    created() {
+        this.setUser();
     }
 }
 </script>
