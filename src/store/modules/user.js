@@ -1,5 +1,7 @@
 const state = () => ({
-	user: {}
+	user: {},
+	company: [],
+	profile: {}
 })
 
 const getters = {
@@ -8,9 +10,13 @@ const getters = {
 
 const mutations = {
     setUser: (state) => {
-        console.log(JSON.parse(localStorage.getItem('user')), '>>>>>>>>>>>>>>>>>>>>')
         state.user = JSON.parse(localStorage.getItem('user'))
-    }
+    },
+
+	setProfile: (state, payload) => {
+		console.log(payload, 'mutation')
+		state.profile = payload},
+	setCompany: (state, payload) => state.company = payload,
 }
 
 export default {
