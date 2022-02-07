@@ -1,5 +1,6 @@
 <template>
   <nav
+    :class="{'l-0': isRouteProfile }"
     class="
       header-navbar
       navbar navbar-expand-lg
@@ -10,9 +11,9 @@
   >
     <div class="navbar-container d-flex content">
       <div class="bookmark-wrapper d-flex align-items-center">
-        <!-- <ul class="nav navbar-nav d-xl-none">
-                    <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
-                </ul> -->
+        <ul v-if="!isRouteProfile" class="nav navbar-nav d-xl-none">
+            <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
+        </ul>
         <!--    <ul class="nav navbar-nav bookmark-icons">
                     <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-email.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Email"><i class="ficon" data-feather="mail"></i></a></li>
                     <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-chat.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Chat"><i class="ficon" data-feather="message-square"></i></a></li>
@@ -262,6 +263,12 @@ export default {
       }
   },
 
+  computed: {
+      isRouteProfile() {
+          return this.$route.name == 'profile'
+      }
+  },
+
   setup() {
     const store = useStore();
 
@@ -271,3 +278,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.l-0 {
+    left: 0 !important;
+}
+</style>
