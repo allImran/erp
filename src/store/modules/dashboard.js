@@ -1,5 +1,6 @@
 const state = () => ({
-	name: 'Dashboard'
+	name: 'Dashboard',
+	sidebar:[]
 })
 
 const getters = {
@@ -7,6 +8,7 @@ const getters = {
 }
 
 const mutations = {
+	setSidebar: (state, payload) => state.sidebar = payload,
 }
 
 export default {

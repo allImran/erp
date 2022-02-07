@@ -3,12 +3,14 @@ import dashboard from './routes/dashboard'
 import auth from './routes/auth'
 import profile from './routes/profile'
 import other from './routes/other'
+import accountSettings from './routes/accountSettings'
 
 const routes = [
   ...dashboard,
   ...auth,
   ...profile,
   ...other,
+  ...accountSettings,
   {
     path: '/:pathMatch(.*)*',
     redirect: 'error-404',
