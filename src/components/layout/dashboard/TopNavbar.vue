@@ -237,7 +237,7 @@
               <router-link to="/profile"> <i class="me-50" data-feather="user"></i> Profile </router-link>
               </a
             >
-            <a class="dropdown-item" href="auth-login-cover.html"
+            <a @click.prevent="logout" class="dropdown-item"
               ><i class="me-50" data-feather="power"></i> Logout</a
             >
           </div>
@@ -253,6 +253,14 @@ import { useStore } from "vuex";
 
 export default {
   name: "TopNav",
+
+  methods: {
+      logout() {
+          localStorage.removeItem("user");
+          localStorage.removeItem("token");
+          this.$router.push('/login')
+      }
+  },
 
   setup() {
     const store = useStore();
