@@ -4,7 +4,7 @@
             <ul class="nav navbar-nav flex-row">
                 <li style="wi" class="nav-item me-auto">
                     <router-link to="/">
-                        <img class="mt-1" width="50" src="/app-assets/images/logo.png" alt="">
+                        <img class="mt-1" width="50" :src="companyLogo" alt="">
                     </router-link>
                 </li>
                 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
@@ -29,13 +29,13 @@
                         <span class="menu-title text-truncate" data-i18n="Email">Email</span>
                     </a>
                 </li> -->
-                <li v-for="(item, i) in menu" :key="i" class=" nav-item">
+                <li v-for="(item, i) in sidebar" :key="i" class=" nav-item">
                     <MenuItem :item="item"/>
-                    <ul class="menu-content">
+                    <!-- <ul class="menu-content">
                         <li v-for="(child, j) in item.child" :key="j">
                             <MenuItem :item="child"/>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
                 
             </ul>
@@ -46,6 +46,8 @@
 <script>
 import {menu} from '@/data/menu'
 import MenuItem from '@/components/layout/dashboard/MenuItem'
+import {mapGetters} from 'vuex'
+
 export default {
     name: 'SideNavbar',
     components: {
@@ -53,6 +55,13 @@ export default {
     },
     data: () => ({
         menu
-    })
+    }),
+
+    computed: {
+        ...mapGetters({
+            sidebar: 'company/getSidebar',
+            companyLogo: 'company/getCompanyLogo'
+        })
+    }
 }
 </script>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import dashboard from './routes/dashboard'
 import auth from './routes/auth'
 import profile from './routes/profile'
+import company from './routes/company'
 import other from './routes/other'
 import accountSettings from './routes/accountSettings'
 
@@ -9,6 +10,7 @@ const routes = [
   ...dashboard,
   ...auth,
   ...profile,
+  ...company,
   ...other,
   ...accountSettings,
   {

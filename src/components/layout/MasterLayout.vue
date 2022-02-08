@@ -93,7 +93,7 @@
 
 
         <!-- BEGIN: Main Menu-->
-        <SideNavbar v-if="!isRouteProfile" />
+        <SideNavbar v-show="!isRouteProfile" />
         <!-- END: Main Menu-->
 
         <!-- BEGIN: Content-->

@@ -1,97 +1,16 @@
 <template>
   <div>
-    
-    <!-- Profile {{ loading ? 'Loading...' : 'Done'}} -->
-    <!-- <hr> {{profile }} -->
-    <!-- user profile  -->
   <div class="app-content content" style="margin-left: 1px;padding-top: 0;">
       <!-- <div class="content-overlay"></div> -->
       <!-- <div class="header-navbar-shadow"></div> -->
       
   </div>
-     <div class="content-body">
-          <div id="user-profile">
-            <div class="row">
-              <div class="col-12">
-                <div class="card profile-header mb-2">
-                  <img
-                    class="card-img-top"
-                    :src="profile.cover_photo"
-                    alt="User Profile Image"
-                  />
-                  <div class="position-relative">
-                    <div
-                      class="profile-img-container d-flex align-items-center"
-                    >
-                      <div class="profile-img">
-                        <img
-                          :src="profile.photo"
-                          class="rounded img-fluid"
-                          alt="Card image"
-                        />
-                      </div>
-                      <div class="profile-title ms-3">
-                        <h2 class="text-white">{{ profile.name }}</h2>
-                        <p class="text-white">User</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="profile-header-nav">
-                    <nav
-                      class="
-                        navbar navbar-expand-md navbar-light
-                        justify-content-end justify-content-md-between
-                        w-100
-                      "
-                    >
-                      <button
-                        class="btn btn-icon navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                      >
-                        <i
-                          data-feather="align-justify"
-                          class="font-medium-5"
-                        ></i>
-                      </button>
-
-                      <!-- collapse  -->
-                      <div
-                        class="collapse navbar-collapse"
-                        id="navbarSupportedContent"
-                      >
-                        <div
-                          class="
-                            profile-tabs
-                            d-flex
-                            justify-content-between
-                            flex-wrap
-                            mt-1 mt-md-0
-                          "
-                        >
-                          <ul class="nav nav-pills mb-0">
-                          </ul>
-                          <button class="btn btn-primary">
-                            <i
-                              data-feather="edit"
-                              class="d-block d-md-none"
-                            ></i>
-                            <span class="fw-bold d-none d-md-block">Edit</span>
-                          </button>
-                        </div>
-                      </div>
-                    </nav>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <Banner 
+      :photo="profile.photo"
+      :coverPhoto="profile.cover_photo"
+      :name="profile.name"
+      :showProfilePhoto="true"
+    />
     <!-- end user profile -->
     
     <!-- user company list-->
@@ -122,33 +41,12 @@
             <div class="row my-2">
               <div class="col-md-12 m-auto" style="background-color: #fff; ">
                 <!-- company list loop -->
-               
-                <div
-                  class="row cardR mobileCompany"
+                <template 
                   v-for="(company,index) in filterSerchCompany()"
                   :key="index"
-                  style="
-              
-                    margin: 5px;
-                    padding: 0;
-                    margin-bottom: 25px;
-                    background-color: #f6f6f6;
-                    
-                  "
                 >
-                  <div class="col-md-3 imgDiv">
-                    <img
-                      :src="company.logo"
-                      height="80"
-                      style="width: 80px; height: 80px; border-radius: 50%"
-                    />
-                  </div>
-                  <div class="col-md-9 vertical-container">
-                    <h3 class="h2 vertical-center mobileCompany">
-                      {{ company.name }}<span>(CompanyAdmin)</span>
-                    </h3>
-                  </div>
-                </div>
+                  <CompanyCard :company="company" />
+                </template>
                 <br />
 
                 <div
@@ -319,8 +217,17 @@ import { inject } from 'vue'
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 
+import CompanyCard from '@/components/molecule/profile/CompanyCard'
+import Banner from '@/components/atom/Banner'
+
 export default {
   name: 'Profile',
+
+  components: {
+    CompanyCard,
+    Banner
+  }, 
+
   data(){
     return{
       searchCompanyString:"",
@@ -334,6 +241,7 @@ export default {
       },
     }
   },
+
   methods: {
     ...mapMutations({
       setProfile: 'user/setProfile',
